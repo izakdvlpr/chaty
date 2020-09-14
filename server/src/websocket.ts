@@ -8,18 +8,16 @@ function setupWebsocket(server: http.Server) {
 
   io.on('connection', socket => {
     loggerUtils.log('Server has a new connection', {
-      tags: ['IO', 'Connection'],
+      tags: ['SocketConnection'],
     });
 
     socket.on('chat.message', data => {
-      console.log('[SOCKET] Chat.message => ', data);
-
       io.emit('chat.message', data);
     });
 
     socket.on('disconnect', () => {
       loggerUtils.log('A connection was disconnected', {
-        tags: ['SOCKET', 'Disconnect'],
+        tags: ['SocketDisconnect'],
       });
     });
   });

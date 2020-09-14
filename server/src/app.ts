@@ -7,6 +7,8 @@ import chalk from 'chalk';
 import { router } from './routes';
 import { setupWebsocket } from './websocket';
 
+import './database/connect';
+
 const app = express().disable('x-powered-by');
 const server = new http.Server(app);
 

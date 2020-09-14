@@ -4,7 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import chalk from 'chalk';
 
-import { routes } from './routes';
+import { router } from './routes';
 import { setupWebsocket } from './websocket';
 
 const app = express().disable('x-powered-by');
@@ -15,7 +15,7 @@ setupWebsocket(server);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(routes);
+app.use(router);
 
 app.use(
   morgan(

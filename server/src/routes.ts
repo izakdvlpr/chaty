@@ -1,5 +1,11 @@
 import { Router } from 'express';
 
-const routes = Router();
+import { createUserController } from './useCases/CreateUser';
 
-export { routes };
+const router = Router();
+
+router.get('/users', (request, response) => {
+  return createUserController.handle(request, response);
+})
+
+export { router };

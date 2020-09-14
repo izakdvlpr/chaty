@@ -9,16 +9,14 @@ import { setupWebsocket } from './websocket';
 
 import './database/connect';
 
-const app = express().disable('x-powered-by');
+const app = express()
+  .disable('x-powered-by')
+  .enable('trust proxy');
 const server = new http.Server(app);
 
 setupWebsocket(server);
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(router);
-
 app.use(
   morgan(
     `${chalk.bgYellow('[WARN]')} ${chalk.yellow('[HTTP]')} ${chalk.yellow(
@@ -26,5 +24,8 @@ app.use(
     )}`,
   ),
 );
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(router);
 
 export { server };

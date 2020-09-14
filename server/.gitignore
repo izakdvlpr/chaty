@@ -1,0 +1,5 @@
+node_modules/
+yarn-error.lock
+.env
+.env.development
+.env.production

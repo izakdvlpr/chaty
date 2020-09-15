@@ -23,7 +23,7 @@ export default createGlobalStyle`
   }
   
   html {
-    background-color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.background};
   }
   
   ul {

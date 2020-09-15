@@ -11,7 +11,7 @@ const colors = {
   black: '#000000',
 
   success: '#34CB79',
-  error: '#CB3434',
+  error: '#ff4d4d',
 };
 
 export { colors };

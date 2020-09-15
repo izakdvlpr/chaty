@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { rgba } from 'polished';
+import { Form as UnForm } from '@unform/web';
 
 export const Container = styled.div`
   width: 100vw;
@@ -7,9 +9,35 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center;    
+`;
+
+export const Form = styled(UnForm)`
+  width: 480px;
+
+  padding: 32px;
+
+  box-shadow: ${({ theme }) => `0 2px 10px 0 ${rgba(theme.black, 0.1)}`};
+  border-radius: 5px;
   
-  background-color: ${({ theme }) => theme.background};
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  background-color: ${({ theme }) => theme.input};
+  
+  @media (max-width: 500px) {    
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const Header = styled.div`

@@ -2,7 +2,7 @@ import { AppProps } from 'next/app';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { colors } from '@config/colors';
+import { colors } from '@styles/colors';
 
 import GlobalStyles from '@styles/global';
 

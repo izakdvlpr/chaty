@@ -1,81 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import io from 'socket.io-client';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
+import Link from 'next/link';
 
-import { Container } from '@styles/pages/home';
+import Header from '@components/Header';
 
-const myId = uuidv4();
-const socket = io('http://localhost:3333');
+import { Container, Content, Button, Wave } from '@styles/pages/home';
 
-socket.on('connect', () =>
-  console.log('[IO] Connect => A new connection has been established'),
-);
-
-interface IMessage {
-  id: string;
-  message: string;
-}
-
-const Chat = () => {
-  const [message, updateMessage] = useState('');
-  const [messages, updateMessages] = useState<IMessage[]>([]);
-
-  const sendMessage = () => {
-    const handleNewMessage = (newMessage: IMessage) =>
-      updateMessages([...messages, newMessage]);
-
-    socket.on('chat.message', handleNewMessage);
-
-    return () => socket.off('chat.message', handleNewMessage);
-  };
-
-  useEffect(() => {
-    sendMessage();
-  }, [messages]);
-
-  const handleFormSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-
-    if (message.trim()) {
-      socket.emit('chat.message', {
-        id: myId,
-        message,
-      });
-
-      updateMessage('');
-    }
-  };
-
+const MainPage = () => {
   return (
-    <Container>
-      <ul className="list">
-        {messages.map((m, index) => (
-          <li
-            className={`list__item list__item--${
-              m.id === myId ? 'mine' : 'other'
-            }`}
-            key={index}
-          >
-            <span
-              className={`message message--${m.id === myId ? 'mine' : 'other'}`}
-            >
-              {m.message}
-            </span>
-          </li>
-        ))}
-      </ul>
+    <>
+      <Header />
 
-      <form className="form" onSubmit={handleFormSubmit}>
-        <input
-          className="form__field"
-          onChange={e => updateMessage(e.target.value)}
-          placeholder="Type a new message here"
-          type="text"
-          value={message}
-        />
-      </form>
-    </Container>
+      <Container>
+        <Content>          
+          <h1>Seu lugar para conversar</h1>
+          <p>Não importa se você faz parte de um clube escolar, uma comunidade artística mundial ou só amigos querendo ficar de boa, o Drocsid torna mais fácil conversar todo dia e se ver com mais frequência.</p>
+          
+          <Link href="/">
+            <a>
+              <Button>Abra o Drocsid no seu navegador</Button>
+            </a>
+          </Link>
+        </Content>
+        
+        <Wave src="/static/images/wave.svg" alt="wave" />
+      </Container>
+    </>
   );
 };
 
-export default Chat;
+export default MainPage;

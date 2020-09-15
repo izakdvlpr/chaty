@@ -1,18 +1,65 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { useField } from '@unform/core';
 
-import { Container, Label, Input, InputWrapper } from './styles';
+import { Container, Label, InputWrapper, Containers } from './styles';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+  name: string;
+  label?: string;
+
+  containers?: {
+    text: string;
+    link: string;
+  }[];
 }
 
-const InputComponent: React.FC<InputProps> = ({ label, ...props }) => {
+type InputProps = JSX.IntrinsicElements['input'] & Props;
+
+const InputComponent: React.FC<InputProps> = ({
+  name,
+  label,
+
+  containers,
+  ...rest
+}) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const { fieldName, defaultValue, registerField, error } = useField(name);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      path: 'value',
+      ref: inputRef.current,
+    });
+  }, [fieldName, registerField]);
+
   return (
     <Container>
-      <Label>{label}</Label>
+      {label && (
+        <Label htmlFor={fieldName} className={error ? 'error' : ''}>
+          {label} {error && <i className={error ? 'error' : ''}>- {error}</i>}
+        </Label>
+      )}
 
       <InputWrapper>
-        <Input {...props} />
+        <input
+          id={fieldName}
+          ref={inputRef}
+          defaultValue={defaultValue}
+          className={error ? 'error' : ''}
+          {...rest}
+        />
+
+        <Containers>
+          {containers &&
+            containers.map(content => (
+              <Link key={content.text} href={content.link}>
+                <a>{content.text}{' '}</a>                
+              </Link>            
+            ))}
+        </Containers>
       </InputWrapper>
     </Container>
   );

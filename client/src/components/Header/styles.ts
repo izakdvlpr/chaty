@@ -46,11 +46,11 @@ export const Button = styled.button`
 
   cursor: pointer;
 
-  background-color: ${({ theme }) => theme.success};
+  background-color: ${({ theme }) => theme.primary};
   transition: background-color 0.17s ease, color 0.17s ease;
 
   &:hover {
-    background-color: ${({ theme }) => shade(0.1, theme.success)};
+    background-color: ${({ theme }) => shade(0.1, theme.primary)};
   }
   
   @media (max-width: 500px) {

@@ -23,8 +23,7 @@
       "@api/*": ["api/*"],
       "@components/*": ["components/*"],
       "@config/*": ["config/*"],
-      "@interfaces/*": ["interfaces/*"],
-      "@layout": ["layout"],      
+      "@interfaces/*": ["interfaces/*"],      
       "@styles/*": ["styles/*"],
       "@utils": ["utils"]
     }

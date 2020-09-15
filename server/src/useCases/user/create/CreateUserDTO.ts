@@ -1,5 +1,5 @@
 export interface ICreateUserRequestDTO {
-  name: string;
   email: string;
+  name: string;
   password: string;
 }

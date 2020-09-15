@@ -10,13 +10,12 @@ export default createGlobalStyle`
   
   *, button, input {
     border: 0;
+    outline: 0;
     background: none;
     
-    color: ${({ theme }) => theme.black};
+    color: ${({ theme }) => theme.white};
     
-    font-family: 'Exo 2', sans-serif;
-    
-    transition: color .2s ease-out;  
+    font-family: 'Roboto', sans-serif;  
   }
   
   a {
@@ -24,7 +23,7 @@ export default createGlobalStyle`
   }
   
   html {
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.primary};
   }
   
   ul {

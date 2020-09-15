@@ -12,13 +12,14 @@ const BASE_URL = 'http://localhost:3333';
 
 export default class ChatAPI {
   static createUser(data: ICreateUserDTO) {
-    return axios.post(`${BASE_URL}/register`, {
+    return axios(`${BASE_URL}/register`, {
+      method: 'POST',
       data,
     });
   }
 
   static userAuth(data: IUserAuthDTO) {
-    return axios.get<IUserAuthResponse>(`${BASE_URL}/auth`, {
+    return axios.post<IUserAuthResponse>(`${BASE_URL}/auth`, {
       data,
     });
   }
@@ -32,7 +33,7 @@ export default class ChatAPI {
   }
 
   static deleteUser(data: IDeleteUserDTO) {
-    return axios.get(`${BASE_URL}/delete`, {
+    return axios.delete(`${BASE_URL}/delete`, {
       data,
     });
   }

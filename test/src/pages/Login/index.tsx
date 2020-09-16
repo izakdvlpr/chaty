@@ -2,6 +2,8 @@ import { SubmitHandler, FormHandles } from '@unform/core';
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import { Form } from '@unform/web';
+
 
 import ChatAPI from '@api/Chat';
 import History from '@services/history';
@@ -10,7 +12,7 @@ import WaveImg from '@assets/svg/wave.svg';
 import Button from '@components/Button';
 import Input from '@components/Input';
 
-import { Container, Form, Header, Block, Contents, Wave } from './styles';
+import { Container, Header, Block, Contents, Wave } from './styles';
 
 interface FormData {
   email: string;
@@ -63,7 +65,7 @@ const LoginPage = () => {
 
   return (
     <Container>
-      <Form ref={formRef} onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit} className="form">
         <Header>
           <h1>Boas-vindas de volta!</h1>
           <p>Estamos muito animados em te ver novamente!</p>

@@ -1,4 +1,3 @@
-import { Form as UnForm } from '@unform/web';
 import { rgba } from 'polished';
 import styled from 'styled-components';
 
@@ -10,33 +9,33 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
 
-export const Form = styled(UnForm)`
-  width: 480px;
+  .form {
+    width: 480px;
 
-  padding: 32px;
+    padding: 32px;
 
-  box-shadow: ${({ theme }) => `0 2px 10px 0 ${rgba(theme.black, 0.1)}`};
-  border-radius: 5px;
+    box-shadow: ${({ theme }) => `0 2px 10px 0 ${rgba(theme.black, 0.1)}`};
+    border-radius: 5px;
 
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
-  background-color: ${({ theme }) => theme.input};
+    background-color: ${({ theme }) => theme.input};
 
-  @media (max-width: 500px) {
-    width: 100%;
-    height: 100%;
+    @media (max-width: 500px) {
+      width: 100%;
+      height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 `;
 

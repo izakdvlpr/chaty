@@ -65,7 +65,7 @@ const LoginPage = () => {
 
   return (
     <Container>
-      <Form ref={formRef} onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit} className="form">
         <Header>
           <h1>Boas-vindas de volta!</h1>
           <p>Estamos muito animados em te ver novamente!</p>
@@ -88,7 +88,7 @@ const LoginPage = () => {
             Precisando de uma conta? <Link to="/register">Registre-se</Link>
           </Contents>
         </Block>
-      </Form>
+      </form>
 
       <Wave src={WaveImg} alt="wave" />
     </Container>

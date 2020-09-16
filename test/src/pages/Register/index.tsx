@@ -71,7 +71,7 @@ const RegisterPage = () => {
 
   return (
     <Container>
-      <Form ref={formRef} onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit} className="form">
         <Header>Criar uma conta</Header>
 
         <Block>
@@ -85,7 +85,7 @@ const RegisterPage = () => {
             <Link to="/login">Já tem uma conta?</Link>
           </Contents>
         </Block>
-      </Form>
+      </form>
 
       <Wave src={WaveImg} alt="wave" />
     </Container>

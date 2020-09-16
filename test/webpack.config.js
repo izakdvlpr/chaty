@@ -44,6 +44,20 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@api': path.resolve(__dirname, 'src/api'),
+      '@services': path.resolve(__dirname, 'src/services'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@interfaces': path.resolve(__dirname, 'src/interfaces'),
+      '@types': path.resolve(__dirname, 'src/types'),
+      'react': path.resolve(__dirname, 'node_modules/react'),
+    },
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
   plugins: [    
     new HtmlWebpackPlugin({
       filename: "index.html",

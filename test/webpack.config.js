@@ -9,14 +9,10 @@ module.exports = (env, argv) => {
     mode,
     entry: path.join(__dirname, 'src/index.tsx'),
     output: {
-      chunkFilename: isDevelopment
-        ? '[name].chunk.js'
-        : '[name].[contenthash:4].chunk.js',
-      filename: isDevelopment ? '[name].js' : '[name].[contenthash:4].js',
-      path: path.resolve(__dirname, 'dist'),
-      publicPath: '/',
+      path: path.join(__dirname, "dist"),
+      filename: "bundle.js"
     },
-    devtool: isDevelopment && 'source-map',
+    devtool: 'source-map',
     module: {
       rules: [
         {
@@ -60,18 +56,19 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
+        filename: "index.html",
         template: path.resolve(__dirname, 'public/index.html'),
+        hash: true
       }),
     ],
-    devServer: {
-      compress: true,
-      contentBase: path.join(__dirname, 'public'),
-      historyApiFallback: true,
-      host: 'localhost',
+    devServer: {      
+      contentBase: "./dist",
+      inline: true,
       hot: true,
       open: true,
-      progress: true,
-      port: '3000',
+      host: "localhost",
+      port: 3000,
+      stats: "errors-only"
     },
   };
 };

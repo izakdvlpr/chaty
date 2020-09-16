@@ -1,7 +1,6 @@
 import { getRepository } from 'typeorm';
 
 import { User } from '../../../entities/User';
-
 import { ICreateUserRequestDTO } from './CreateUserDTO';
 
 export class CreateUserUseCase {
@@ -14,7 +13,7 @@ export class CreateUserUseCase {
     if (emailAlreadyExist) {
       throw new Error('E-mail already registered');
     }
-    
+
     const nameAlreadyExist = await repository.findOne({ where: { name } });
 
     if (nameAlreadyExist) {

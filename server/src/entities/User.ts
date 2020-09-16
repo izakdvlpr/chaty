@@ -1,17 +1,17 @@
+import bcrypt from 'bcryptjs';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   BeforeInsert,
   BeforeUpdate,
-} from "typeorm";
-import bcrypt from "bcryptjs";
+} from 'typeorm';
 
-@Entity("users")
+@Entity('users')
 class User {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
-  
+
   @Column()
   name: string;
 

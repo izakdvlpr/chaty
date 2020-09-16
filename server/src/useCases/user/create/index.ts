@@ -1,5 +1,5 @@
-import { CreateUserUseCase } from './CreateUserUseCase';
 import { CreateUserController } from './CreateUserController';
+import { CreateUserUseCase } from './CreateUserUseCase';
 
 const createUserUseCase = new CreateUserUseCase();
 

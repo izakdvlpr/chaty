@@ -1,5 +1,5 @@
-import { UserAuthUseCase } from './UserAuthUseCase';
 import { UserAuthController } from './UserAuthController';
+import { UserAuthUseCase } from './UserAuthUseCase';
 
 const userAuthUseCase = new UserAuthUseCase();
 

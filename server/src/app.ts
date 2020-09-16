@@ -1,17 +1,15 @@
+import chalk from 'chalk';
+import cors from 'cors';
 import express from 'express';
 import http from 'http';
-import cors from 'cors';
 import morgan from 'morgan';
-import chalk from 'chalk';
 
 import { router } from './routes';
 import { setupWebsocket } from './websocket';
 
 import './database/connect';
 
-const app = express()
-  .disable('x-powered-by')
-  .enable('trust proxy');
+const app = express().disable('x-powered-by').enable('trust proxy');
 const server = new http.Server(app);
 
 setupWebsocket(server);

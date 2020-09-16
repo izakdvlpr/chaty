@@ -1,9 +1,8 @@
-import { getRepository } from 'typeorm';
 import bcrypy from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { getRepository } from 'typeorm';
 
 import { User } from '../../../entities/User';
-
 import { IUserAuthRequestDTO } from './UserAuthDTO';
 
 export class UserAuthUseCase {
@@ -14,7 +13,7 @@ export class UserAuthUseCase {
     const user = await repository.findOne({ where: { email } });
 
     if (!user) {
-      throw new Error('User not found');
+      throw new Error('Email not found');
     }
 
     const isValidPassowrd = await bcrypy.compare(password, user.password);
@@ -23,7 +22,9 @@ export class UserAuthUseCase {
       throw new Error('Password invalid');
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: '1d',
+    });
 
     return {
       id: user.id,

@@ -1,4 +1,4 @@
-export interface IUserAuthRequestDTO {  
+export interface IUserAuthRequestDTO {
   email: string;
   password: string;
 }

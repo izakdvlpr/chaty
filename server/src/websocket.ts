@@ -1,7 +1,7 @@
 import http from 'http';
 import socket from 'socket.io';
 
-import { loggerUtils } from './utils/loggerUtils';
+import { loggerUtils } from '@utils/loggerUtils';
 
 function setupWebsocket(server: http.Server) {
   const io = socket(server);

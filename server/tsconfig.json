@@ -17,13 +17,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@app": ["./src/base/app"],
-      "@command": ["./src/base/command"],
-      "@event": ["./src/base/event"],      
-      "@interfaces": ["./src/interfaces"],
-      "@structures": ["./src/structures"],
-      "@types": ["./src/types"],
-      "@utils": ["./src/utils"]
+      "@database/*": ["./src/database/*"],
+      "@entities/*": ["./src/entities/*"],
+      "@middlewares/*": ["./src/middlewares/*"],
+      "@useCases/*": ["./src/useCases/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src/**/*"]

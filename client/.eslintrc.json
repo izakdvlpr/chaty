@@ -55,6 +55,8 @@
     "class-methods-use-this": "off",
 
     "no-use-before-define": "off",
+    "no-unused-expressions": "off",
+    "no-console": "off",
 
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",

@@ -68,7 +68,7 @@ const RegisterPage = () => {
     }
   };
 
-  if (!!tokenUser) {
+  if (tokenUser) {
     window.location.href = '/';
 
     return <></>;

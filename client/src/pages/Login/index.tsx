@@ -4,11 +4,9 @@ import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import ChatAPI from '../../api/Chat';
-
 import WaveImg from '../../assets/svg/wave.svg';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-
 import { Container, Form, Header, Block, Contents, Wave } from './styles';
 
 interface FormData {
@@ -64,7 +62,7 @@ const LoginPage = () => {
     }
   };
 
-  if (!!tokenUser) {
+  if (tokenUser) {
     window.location.href = '/';
 
     return <></>;

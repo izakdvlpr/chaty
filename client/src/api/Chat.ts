@@ -4,37 +4,43 @@ import {
   ICreateUserDTO,
   IUserAuthDTO,
   IUserAuthResponse,
-  IGetUserResponse,
+  IProfileResponse,
   IDeleteUserDTO,
-} from '../interfaces/index';
+} from '../interfaces';
 
 const BASE_URL = 'http://localhost:3333';
 
 export default class ChatAPI {
-  static createUser(data: ICreateUserDTO) {
-    return axios(`${BASE_URL}/register`, {
+  static create(data: ICreateUserDTO) {
+    return axios.request({
+      url: `${BASE_URL}/register`,
       method: 'POST',
       data,
     });
   }
 
-  static userAuth(data: IUserAuthDTO) {
-    return axios(`${BASE_URL}/auth`, {
+  static auth(data: IUserAuthDTO) {
+    return axios.request<IUserAuthResponse>({
+      url: `${BASE_URL}/auth`,
       method: 'POST',
       data,
     });
   }
 
-  static getUser(token: string) {
-    return axios.get<IGetUserResponse>(`${BASE_URL}/me`, {
+  static profile(token: string) {
+    return axios.request<IProfileResponse>({
+      url: `${BASE_URL}/me`,
+      method: 'GET',
       headers: {
         authorization: token,
       },
     });
   }
 
-  static deleteUser(data: IDeleteUserDTO) {
-    return axios.delete(`${BASE_URL}/delete`, {
+  static delete(data: IDeleteUserDTO) {
+    return axios.request({
+      url: `${BASE_URL}/delete`,
+      method: 'DELETE',
       data,
     });
   }

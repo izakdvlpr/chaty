@@ -19,7 +19,8 @@ export default class ChatAPI {
   }
 
   static userAuth(data: IUserAuthDTO) {
-    return axios.post<IUserAuthResponse>(`${BASE_URL}/auth`, {
+    return axios(`${BASE_URL}/auth`, {
+      method: 'POST',
       data,
     });
   }

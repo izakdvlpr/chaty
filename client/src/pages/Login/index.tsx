@@ -36,7 +36,7 @@ const LoginPage = () => {
         abortEarly: false,
       });
 
-      await ChatAPI.userAuth(data).then(response => {
+      await ChatAPI.auth(data).then(response => {
         const { token } = response.data;
 
         localStorage.setItem('token', token);

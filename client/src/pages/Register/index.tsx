@@ -38,7 +38,7 @@ const RegisterPage = () => {
         abortEarly: false,
       });
 
-      await ChatAPI.createUser(data);
+      await ChatAPI.create(data);
 
       formRef.current?.setErrors({});
 
@@ -67,6 +67,12 @@ const RegisterPage = () => {
       console.log(`[${err.response?.status}]`, err.response?.data.message);
     }
   };
+
+  if (!!tokenUser) {
+    window.location.href = '/';
+
+    return <></>;
+  }
 
   return (
     <Container>

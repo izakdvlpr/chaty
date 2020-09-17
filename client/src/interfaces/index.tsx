@@ -15,7 +15,7 @@ export interface IUserAuthResponse {
   token: string;
 }
 
-export interface IGetUserResponse {
+export interface IProfileResponse {
   userId: string;
 }
 

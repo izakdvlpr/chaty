@@ -5,7 +5,7 @@ import WaveImg from '../../assets/svg/wave.svg';
 import Header from '../../components/Header';
 import { Container, Content, Button, Wave } from './styles';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Header />
@@ -30,4 +30,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

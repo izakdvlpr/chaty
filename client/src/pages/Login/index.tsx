@@ -38,7 +38,7 @@ const LoginPage = () => {
         localStorage.setItem('token', token);
       });
 
-      formRef.current?.setErrors({});      
+      formRef.current?.setErrors({});
 
       reset();
     } catch (err) {

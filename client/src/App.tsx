@@ -1,10 +1,10 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import Routes from "./routes";
+import Routes from './routes';
 
-import colors from "./styles/colors";
-import GlobalStyles from "./styles/global";
+import colors from './styles/colors';
+import GlobalStyles from './styles/global';
 
 function App() {
   return (

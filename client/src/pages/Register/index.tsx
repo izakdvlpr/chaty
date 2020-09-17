@@ -36,7 +36,7 @@ const RegisterPage = () => {
 
       await ChatAPI.createUser(data);
 
-      formRef.current?.setErrors({});      
+      formRef.current?.setErrors({});
 
       reset();
     } catch (err) {

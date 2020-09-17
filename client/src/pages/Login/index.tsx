@@ -18,7 +18,7 @@ interface FormData {
 
 const LoginPage = () => {
   const history = useHistory();
-  
+
   const formRef = useRef<FormHandles>(null);
 
   const tokenUser = localStorage.getItem('token');
@@ -43,7 +43,7 @@ const LoginPage = () => {
       });
 
       formRef.current?.setErrors({});
-      
+
       history.push('/app');
 
       reset();
@@ -65,8 +65,8 @@ const LoginPage = () => {
   };
 
   if (!!tokenUser) {
-    window.location.href = "/";
-    
+    window.location.href = '/';
+
     return <></>;
   }
 

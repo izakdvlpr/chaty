@@ -17,9 +17,9 @@ interface FormData {
 
 const RegisterPage = () => {
   const history = useHistory();
-  
+
   const formRef = useRef<FormHandles>(null);
-  
+
   const tokenUser = localStorage.getItem('token');
 
   const handleSubmit: SubmitHandler<FormData> = async (data, { reset }) => {
@@ -41,7 +41,7 @@ const RegisterPage = () => {
       await ChatAPI.createUser(data);
 
       formRef.current?.setErrors({});
-      
+
       history.push('/login');
 
       reset();

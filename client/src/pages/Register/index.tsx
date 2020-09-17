@@ -1,6 +1,6 @@
 import { SubmitHandler, FormHandles } from '@unform/core';
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import ChatAPI from '../../api/Chat';
@@ -16,7 +16,11 @@ interface FormData {
 }
 
 const RegisterPage = () => {
+  const history = useHistory();
+  
   const formRef = useRef<FormHandles>(null);
+  
+  const tokenUser = localStorage.getItem('token');
 
   const handleSubmit: SubmitHandler<FormData> = async (data, { reset }) => {
     try {
@@ -37,6 +41,8 @@ const RegisterPage = () => {
       await ChatAPI.createUser(data);
 
       formRef.current?.setErrors({});
+      
+      history.push('/login');
 
       reset();
     } catch (err) {

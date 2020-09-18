@@ -21,6 +21,10 @@ Drocsid é um chat virtual baseado no [Discord Inc](https://discord.com). Criado
 - [ ] Salvar o histórico de mensagens no banco de dados
 - [ ] Trocar de banco de dados
 
+# ♻️ Contribuições
+
+Ficaria muito grato em que você possa contribuir com este projeto, para que ele se torne cada vez melhor.
+
 # 🔒 Licença
 
 ©️ Copyright - zevdvlpr - 2020

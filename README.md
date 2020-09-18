@@ -18,4 +18,4 @@ Drocsid é um chat virtual baseado no Discord. Criado com fins de entrenimento p
 
 # 🔒 Licença
 
-- Este projeto está sob a licença
+- Este projeto está sob a licença [GPL-3.0](https://github.com/zevdvlpr/drocsid/blob/master/LICENSE)

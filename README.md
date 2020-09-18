@@ -6,7 +6,7 @@ Drocsid é um chat virtual baseado no [Discord Inc](https://discord.com). Criado
 
 **Client**
 
-- [ ] Mensagens em tempo real usando Socket IO
+- [x] Mensagens em tempo real usando Socket IO
 - [x] Autenticação local
 - [ ] Carrega dados do usuário no login (Mensagens Privadas)
 - [ ] Histórico persistente do canal
@@ -20,6 +20,7 @@ Drocsid é um chat virtual baseado no [Discord Inc](https://discord.com). Criado
 - [ ] Permitir que o usuário adicione outros usuários
 - [ ] Salvar o histórico de mensagens no banco de dados
 - [ ] Trocar de banco de dados
+- [ ] Criar monorepo
 
 # ♻️ Contribuições
 

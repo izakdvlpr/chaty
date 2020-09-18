@@ -8,8 +8,8 @@ const HeaderComponent: React.FC = () => {
     <Container>
       <Logo>Drocsid</Logo>
 
-      {localStorage.getItem('token') ? (
-        <Link to="/login">
+      {!!localStorage.getItem('token') ? (
+        <Link to="/@me">
           <Button>
             <ButtonText>Abrir Drocsid</ButtonText>
           </Button>

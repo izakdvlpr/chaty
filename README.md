@@ -25,7 +25,7 @@ Drocsid é um chat virtual baseado no [Discord Inc](https://discord.com). Criado
 
 Ficaria muito grato em que você possa contribuir com este projeto, para que ele se torne cada vez melhor.
 
-# 🔒 Licença
+# 🛃 Licença
 
 ©️ Copyright - zevdvlpr - 2020
 

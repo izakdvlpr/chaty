@@ -1,13 +1,13 @@
 # 👾 Drocsid (Under Development)
 
-Drocsid é um chat virtual baseado no Discord. Criado com fins de entrenimento para seus usuários, nele você podê conversar com amigos, criar grupos e festejar o aniversário do seu melhro amigo.
+Drocsid é um chat virtual baseado no [Discord Inc](https://discord.com). Criado com fins de entrenimento para seus usuários, nele você podê conversar com amigos, criar grupos e festejar o aniversário do seu melhor amigo.
 
-# 🧙‍♂️ Coisas que serão implementadas
+# 🧙‍♂️ Atualizações
 
 **Client**
 
 - [ ] Mensagens em tempo real usando Socket IO
-- [ ] Autenticação local
+- [x] Autenticação local
 - [ ] Carrega dados do usuário no login (Mensagens Privadas)
 - [ ] Histórico persistente do canal
 - [ ] Mensagens privadas
@@ -16,6 +16,13 @@ Drocsid é um chat virtual baseado no Discord. Criado com fins de entrenimento p
 
 **Server**
 
+- [x] Criar conta do usário e gerar um token jwt
+- [ ] Permitir que o usuário adicione outros usuários
+- [ ] Salvar o histórico de mensagens no banco de dados
+- [ ] Trocar de banco de dados
+
 # 🔒 Licença
 
-- Este projeto está sob a licença [GPL-3.0](https://github.com/zevdvlpr/drocsid/blob/master/LICENSE)
+©️ Copyright - zevdvlpr - 2020
+
+- Este projeto está sob a licença **[GPL-3.0](https://github.com/zevdvlpr/drocsid/blob/master/LICENSE)**

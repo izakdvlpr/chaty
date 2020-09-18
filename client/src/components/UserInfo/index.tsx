@@ -27,7 +27,7 @@ const UserInfo: React.FC = () => {
       </Profile>
 
       <Icons>
-        <Link to="/logout">          
+        <Link to="/logout">
           <LogoutIcon />
         </Link>
         <SettingsIcon />

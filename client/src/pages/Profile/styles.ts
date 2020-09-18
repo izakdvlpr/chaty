@@ -13,11 +13,11 @@ export const Grid = styled.div`
   grid-template-columns: 240px auto 240px;
   grid-template-rows: 52px auto 52px;
   grid-template-areas:
-    "SU CH UL"
-    "SC CH UL"
-    "UI CH UL";
+    'SU CH UL'
+    'SC CH UL'
+    'UI CH UL';
   height: 100vh;
-  
+
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

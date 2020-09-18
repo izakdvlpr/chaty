@@ -10,7 +10,7 @@ import {
   Group,
   Profile,
   AvatarWrapper,
-  Avatar,  
+  Avatar,
   CloseIcon,
 } from './styles';
 
@@ -34,7 +34,7 @@ const SelectChannel: React.FC = () => {
               <AvatarWrapper>
                 <Avatar src="https://github.com/zevdvlpr.png" alt="avatar" />
               </AvatarWrapper>
-              
+
               <h4>Zev</h4>
             </Profile>
 

@@ -1,9 +1,7 @@
-import styled, { css } from 'styled-components';
-
 import { shade } from 'polished';
-
-import { MdSettings } from 'react-icons/md';
 import { CgLogOut } from 'react-icons/cg';
+import { MdSettings } from 'react-icons/md';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   grid-area: UI;
@@ -42,7 +40,7 @@ export const AvatarWrapper = styled.div`
     position: absolute;
     bottom: 0;
     right: 0;
-    
+
     border-radius: 50%;
 
     content: '';
@@ -77,15 +75,15 @@ export const UserData = styled.div`
 
 export const Icons = styled.div`
   display: flex;
-  align-items: center;    
-  
+  align-items: center;
+
   a {
     display: flex;
     align-items: center;
   }
-    
-  > svg:not(:first-child) {    
-    margin-left: 7px;  
+
+  > svg:not(:first-child) {
+    margin-left: 7px;
   }
 `;
 
@@ -104,7 +102,7 @@ const iconCSS = css`
   }
 `;
 
-export const LogoutIcon = styled(CgLogOut)`  
+export const LogoutIcon = styled(CgLogOut)`
   ${iconCSS};
 `;
 

@@ -4,13 +4,13 @@ const colors = {
 
   input: '#36393F',
   inputText: '#8E9297',
-  
-  text: "#8E9297",
-  
-  dnd: "#BE4041",
-  online: "#43B581",
-  idle: "#FAA61A",
-  offline: "#747F8D",
+
+  text: '#8E9297',
+
+  dnd: '#BE4041',
+  online: '#43B581',
+  idle: '#FAA61A',
+  offline: '#747F8D',
 
   background: '#2F3136',
 

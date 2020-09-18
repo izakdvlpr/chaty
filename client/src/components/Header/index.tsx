@@ -8,7 +8,7 @@ const HeaderComponent: React.FC = () => {
     <Container>
       <Logo>Drocsid</Logo>
 
-      {!!localStorage.getItem('token') ? (
+      {localStorage.getItem('token') ? (
         <Link to="/@me">
           <Button>
             <ButtonText>Abrir Drocsid</ButtonText>

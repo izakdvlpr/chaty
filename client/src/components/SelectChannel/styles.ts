@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import { shade, lighten } from 'polished';
-
 import { FaUserFriends } from 'react-icons/fa';
 import { MdAdd, MdClose } from 'react-icons/md';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: SC;
@@ -161,7 +160,7 @@ export const AvatarWrapper = styled.div`
     position: absolute;
     bottom: 0;
     right: 0;
-    
+
     border-radius: 50%;
 
     content: '';

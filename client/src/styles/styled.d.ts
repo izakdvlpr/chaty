@@ -7,6 +7,13 @@ declare module 'styled-components' {
 
     input: string;
     inputText: string;
+    
+    text: string;
+    
+    dnd: string;
+    online: string;
+    idle: string;
+    offline: string;
 
     background: string;
 

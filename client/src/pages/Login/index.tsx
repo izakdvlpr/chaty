@@ -42,7 +42,7 @@ const LoginPage = () => {
 
       formRef.current?.setErrors({});
 
-      history.push('/app');
+      history.push('/@me');
 
       reset();
     } catch (err) {

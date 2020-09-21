@@ -82,9 +82,7 @@ const LoginPage = () => {
             name="password"
             type="password"
             label="Senha"
-            containers={[
-              { text: 'Esqueceu a senha?', link: '#' },
-            ]}
+            containers={[{ text: 'Esqueceu a senha?', link: '#' }]}
           />
 
           <Button type="submit">Entrar</Button>

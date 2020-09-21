@@ -1,6 +1,5 @@
-import styled from 'styled-components';
 import { rgba, lighten } from 'polished';
-
+import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: CI;
@@ -26,39 +25,39 @@ export const ChannelName = styled.div`
 export const Separator = styled.div`
   height: 24px;
   width: 1px;
-  
+
   margin: 0 13px;
-  
+
   opacity: 0.2;
   background-color: ${({ theme }) => theme.white};
 `;
 
 export const Section = styled.div`
   margin-right: 8px;
-  padding: 6px;  
+  padding: 6px;
 
   font-size: 15.5px;
   font-weight: 500;
   color: ${({ theme }) => theme.text};
-  
+
   border-radius: 4px;
-  
+
   cursor: pointer;
-  
+
   &:hover,
   &.active {
     color: ${({ theme }) => lighten(0.2, theme.text)};
 
-    background-color: ${({ theme }) => lighten(0.020, theme.background)};
+    background-color: ${({ theme }) => lighten(0.02, theme.background)};
   }
-  
+
   &.button {
     color: ${({ theme }) => theme.online};
     background-color: ${({ theme }) => rgba(theme.online, 0.2)};
-    
+
     &.active {
       color: ${({ theme }) => theme.white};
-      background-color: ${({ theme }) => lighten(0.040, theme.online)};
+      background-color: ${({ theme }) => lighten(0.04, theme.online)};
     }
   }
 `;

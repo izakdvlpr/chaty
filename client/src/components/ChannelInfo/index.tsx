@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-  Container,
-  ChannelName,
-  Separator,
-  Section,
-} from './styles';
+import { Container, ChannelName, Separator, Section } from './styles';
 
 interface ChannelProps {
   icon: any;
@@ -28,13 +23,14 @@ const ChannelInfo: React.FC<ChannelProps> = ({ icon, name, sections }) => {
 
       {sections?.map(section => (
         <Section
+          key={section.name}
           className={`${section.isButton ? 'button' : ''} ${
             section.isActive ? 'active' : ''
           }`}
         >
           {section.name}
         </Section>
-      ))}      
+      ))}
     </Container>
   );
 };

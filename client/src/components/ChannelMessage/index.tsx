@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Container, Avatar, Message, Header, Content } from "./styles";
-export { Mention } from "./styles";
+import { Container, Avatar, Message, Header, Content } from './styles';
+
+export { Mention } from './styles';
 
 export interface Props {
   author: string;
@@ -19,8 +20,8 @@ const ChannelMessage: React.FC<Props> = ({
   isBot,
 }) => {
   return (
-    <Container className={hasMention ? "mention" : ""}>
-      <Avatar className={isBot ? "bot" : ""} />
+    <Container className={hasMention ? 'mention' : ''}>
+      <Avatar className={isBot ? 'bot' : ''} />
 
       <Message>
         <Header>

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { MdEmail } from 'react-icons/md';
 import { shade } from 'polished';
+import { MdEmail } from 'react-icons/md';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: CD;
@@ -34,7 +34,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const Input = styled.input`
-    width: 100%;
+  width: 100%;
   height: 44px;
   padding: 0 10px 0 45px;
   border-radius: 7px;

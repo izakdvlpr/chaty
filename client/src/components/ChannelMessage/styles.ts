@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const Container = styled.div`
 export const Avatar = styled.div`
   width: 40px;
   height: 40px;
-  background-color: ${({ theme }) => theme.secondary};;
+  background-color: ${({ theme }) => theme.secondary};
   border-radius: 50%;
   &.bot {
     background-color: orange;

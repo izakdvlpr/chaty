@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
 import ChannelMessage from '../ChannelMessage';
-
 import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
 
 const ChatData: React.FC = () => {
@@ -18,13 +17,14 @@ const ChatData: React.FC = () => {
   return (
     <Container>
       <Messages ref={messagesRef}>
-      {Array.from(Array(15).keys()).map((n) => (
+        {Array.from(Array(15).keys()).map(n => (
           <ChannelMessage
+            key={n}
             author="Cara aleatório"
             date="01/01/2077"
-            content="test"                        
+            content="test"
           />
-        ))} 
+        ))}
       </Messages>
 
       <InputWrapper>

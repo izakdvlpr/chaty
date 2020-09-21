@@ -1,17 +1,16 @@
 import React from 'react';
 
+import ChannelInfo from '../../components/ChannelInfo';
 import ChannelList from '../../components/ChannelList';
 import UserInfo from '../../components/UserInfo';
-import ChannelInfo from '../../components/ChannelInfo';
-
 import { Grid, FriendsIcon } from './styles';
 
 const ProfilePage: React.FC = () => {
   return (
-    <Grid>      
+    <Grid>
       <ChannelList />
       <UserInfo />
-      
+
       <ChannelInfo
         icon={<FriendsIcon />}
         name="Amigos"
@@ -19,7 +18,7 @@ const ProfilePage: React.FC = () => {
           { name: 'Todos' },
           { name: 'Adicionar amigo', isButton: true },
         ]}
-      />      
+      />
     </Grid>
   );
 };

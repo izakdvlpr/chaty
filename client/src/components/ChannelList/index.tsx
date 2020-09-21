@@ -6,12 +6,12 @@ import {
   SectionContent,
   FriendsIcon,
   SettingsIcon,
-  Label,  
+  Label,
   List,
   Group,
   Profile,
   AvatarWrapper,
-  Avatar  
+  Avatar,
 } from './styles';
 
 const ChannelList: React.FC = () => {
@@ -23,7 +23,7 @@ const ChannelList: React.FC = () => {
           Amigos
         </SectionContent>
       </Link>
-      
+
       <Link to="/config">
         <SectionContent>
           <SettingsIcon />
@@ -31,21 +31,19 @@ const ChannelList: React.FC = () => {
         </SectionContent>
       </Link>
 
-      <Label>
-        Mensagens Diretas        
-      </Label>
+      <Label>Mensagens Diretas</Label>
 
       <List>
         {Array.from(Array(10).keys()).map(n => (
-          <Link to="/chats/1">
-            <Group key={n}>
+          <Link to="/chats/1" key={n}>
+            <Group>
               <Profile>
                 <AvatarWrapper>
                   <Avatar src="https://github.com/zevdvlpr.png" alt="avatar" />
                 </AvatarWrapper>
 
                 <h4>Zev</h4>
-              </Profile>              
+              </Profile>
             </Group>
           </Link>
         ))}

@@ -1,27 +1,24 @@
 import styled from 'styled-components';
+import { FaUserFriends } from 'react-icons/fa';
 
-/**
- * SU = Search User
- * SC = Select Channel
- * UI = User Info
- * CH = Chat
- * UL = User List
- */
+export const Grid = styled.div`  
+  height: 100vh;
 
-export const Grid = styled.div`
   display: grid;
+  
   grid-template-columns: 240px auto 240px;
   grid-template-rows: 52px auto 52px;
   grid-template-areas:
-    'SU CH UL'
-    'SC CH UL'
-    'UI CH UL';
-  height: 100vh;
+    'CL CI CI'
+    'CL NL NL'
+    'UI NL NL';
+`;
 
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+export const FriendsIcon = styled(FaUserFriends)`
+  width: 24px;
+  height: 24px;
+
+  margin-right: 10px;
+
+  fill: ${({ theme }) => theme.text};
 `;

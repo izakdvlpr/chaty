@@ -1,20 +1,25 @@
 import React from 'react';
 
-import Chat from '../../components/Chat';
-import SearchUser from '../../components/SearchUser';
-import SelectChannel from '../../components/SelectChannel';
+import ChannelList from '../../components/ChannelList';
 import UserInfo from '../../components/UserInfo';
-import UserList from '../../components/UserList';
-import { Grid } from './styles';
+import ChannelInfo from '../../components/ChannelInfo';
+
+import { Grid, FriendsIcon } from './styles';
 
 const ProfilePage: React.FC = () => {
   return (
-    <Grid>
-      <SearchUser />
-      <SelectChannel />
+    <Grid>      
+      <ChannelList />
       <UserInfo />
-      <Chat />
-      <UserList />
+      
+      <ChannelInfo
+        icon={<FriendsIcon />}
+        name="Amigos"
+        sections={[
+          { name: 'Todos' },
+          { name: 'Adicionar amigo', isButton: true },
+        ]}
+      />      
     </Grid>
   );
 };

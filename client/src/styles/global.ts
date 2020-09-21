@@ -23,10 +23,17 @@ export default createGlobalStyle`
   }
   
   html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
     background-color: ${({ theme }) => theme.background};
   }
   
   ul {
     list-style: none;    
-  }  
+  }
 `;

@@ -1,6 +1,5 @@
 import { shade } from 'polished';
 import { CgLogOut } from 'react-icons/cg';
-import { MdSettings } from 'react-icons/md';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
@@ -103,9 +102,5 @@ const iconCSS = css`
 `;
 
 export const LogoutIcon = styled(CgLogOut)`
-  ${iconCSS};
-`;
-
-export const SettingsIcon = styled(MdSettings)`
   ${iconCSS};
 `;

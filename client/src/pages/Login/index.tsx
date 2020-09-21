@@ -42,7 +42,7 @@ const LoginPage = () => {
 
       formRef.current?.setErrors({});
 
-      history.push('/@me');
+      history.push('/profile');
 
       reset();
     } catch (err) {
@@ -82,9 +82,9 @@ const LoginPage = () => {
             name="password"
             type="password"
             label="Senha"
-            // containers={[
-            //   { text: 'Esqueceu a senha?', link: '/changepassword' },
-            // ]}
+            containers={[
+              { text: 'Esqueceu a senha?', link: '#' },
+            ]}
           />
 
           <Button type="submit">Entrar</Button>

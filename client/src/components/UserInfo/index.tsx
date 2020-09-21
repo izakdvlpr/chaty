@@ -9,7 +9,6 @@ import {
   UserData,
   Icons,
   LogoutIcon,
-  SettingsIcon,
 } from './styles';
 
 const UserInfo: React.FC = () => {
@@ -30,7 +29,6 @@ const UserInfo: React.FC = () => {
         <Link to="/logout">
           <LogoutIcon />
         </Link>
-        <SettingsIcon />
       </Icons>
     </Container>
   );

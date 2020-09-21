@@ -25,9 +25,9 @@ Drocsid é um chat virtual baseado no [Discord Inc](https://discord.com). Criado
 
 # 💻 Tecnologias
 
-- TypeScript
-- React.Js
-- Node.js
+- [TypesSript](https://www.typescriptlang.org/)
+- [ReactJS](https://reactjs.org/)
+- [NodeJS](https://nodejs.org/)
 
 # ♻️ Contribuições
 

@@ -21,10 +21,8 @@ class UserResolver {
   async createUser(@Arg('name') name: string) {
     let user = await User.findOne({ name });
 
-    if (!user) {
-      user = await User.create({
-        name,
-      });
+    if (user) {
+      return new Error('User already exists!')
     }
 
     return user;

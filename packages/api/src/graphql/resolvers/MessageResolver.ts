@@ -15,15 +15,8 @@ import { MessageSchema } from '../schemas/MessageSchema';
 
 @Resolver()
 class MessageResolver {
-  @Query(() => String)
-  async hello() {
-    return 'Hello World';
-  }
-
-  @Subscription(() => [MessageSchema], {
-    topics: 'MESSAGES',
-  })
-  async messages() {
+  @Query(() => [MessageSchema])
+  async previousMessages() {
     const messages = await Message.find();
 
     return messages;
@@ -46,6 +39,15 @@ class MessageResolver {
     await pubSub.publish('MESSAGES', {});
 
     return message;
+  }
+
+  @Subscription(() => [MessageSchema], {
+    topics: 'MESSAGES',
+  })
+  async receivedMessages() {
+    const messages = await Message.find();
+
+    return messages;
   }
 }
 

@@ -1,0 +1,46 @@
+{
+  "name": "chaty",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "build": "lerna run build --stream",
+    "dev": "lerna run dev --stream",
+    "start:mobile": "yarn workspace @chaty/app start",
+    "dev:api": "yarn workspace @chaty/api dev",
+    "dev:cra": "yarn workspace @chaty/cra dev",
+    "dev:web": "yarn workspace @chaty/web dev"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.12",
+    "date-fns": "^2.19.0",
+    "graphql": "^15.5.0",
+    "polished": "^4.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.2.1",
+    "subscriptions-transport-ws": "^0.9.18"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "@types/styled-components": "^5.1.9",
+    "husky": "^5.1.3",
+    "lerna": "^4.0.0",
+    "typescript": "^4.2.3"
+  }
+}

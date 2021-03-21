@@ -1,32 +1,40 @@
 import { createContext, ReactNode } from 'react';
-import { useMutation, useSubscription, gql, ApolloError } from '@apollo/client';
+import {
+  useQuery,
+  useMutation,
+  useSubscription,
+  gql,
+  QueryResult,
+  OperationVariables,
+  ApolloError,
+} from '@apollo/client';
 
-interface User {
+export interface Message {
   _id: string;
-  name: string;
-}
-
-interface Message {
-  _id: string;
-  user: User;
+  user: {
+    _id: string;
+    name: string;
+  };
   content: string;
   createdAt: string;
   updatedAt: string;
 }
 
-interface MessagesData {
-  messages: Message[];
-}
-
-interface Messages {
-  getMessages: {
-    data: MessagesData | undefined;
+interface ChatContextData {
+  previousMessages: QueryResult<
+    {
+      previousMessages: Message[];
+    },
+    OperationVariables
+  >;
+  receivedMessages: {
+    variables: OperationVariables;
     loading: boolean;
-    error: ApolloError | undefined;
+    data?: {
+      receivedMessages: Message[];
+    };
+    error?: ApolloError;
   };
-}
-
-interface ChatContextData extends Messages {
   sendMessage: (name: string, content: string) => void;
 }
 
@@ -34,9 +42,9 @@ interface ChatContextProps {
   children: ReactNode;
 }
 
-const GET_MESSAGES = gql`
-  subscription Messages {
-    messages {
+const PREVIOUS_MESSAGES = gql`
+  query PreviousMessages {
+    previousMessages {
       user {
         name
       }
@@ -45,11 +53,22 @@ const GET_MESSAGES = gql`
   }
 `;
 
-const POST_MESSAGE = gql`
-  mutation PostMessage($name: String!, $message: String!) {
-    postMessage(name: $name, content: $message) {
+const POST_MESSAGES = gql`
+  mutation PostMessages($name: String!, $content: String!) {
+    postMessage(name: $name, content: $content) {
       content
       createdAt
+    }
+  }
+`;
+
+const RECEIVED_MESSAGES = gql`
+  subscription ReceivedMessages {
+    receivedMessages {
+      user {
+        name
+      }
+      content
     }
   }
 `;
@@ -57,15 +76,25 @@ const POST_MESSAGE = gql`
 export const ChatContext = createContext({} as ChatContextData);
 
 export function ChatProvider({ children }: ChatContextProps) {
-  const { data, loading, error } = useSubscription<MessagesData>(GET_MESSAGES);
+  const previousMessages = useQuery<{
+    previousMessages: Message[];
+  }>(PREVIOUS_MESSAGES, {
+    onError: err => console.error(err),
+  });
 
-  const [postMessage] = useMutation(POST_MESSAGE);
+  const receivedMessages = useSubscription<{
+    receivedMessages: Message[];
+  }>(RECEIVED_MESSAGES);
 
-  function sendMessage(name: string, message: string) {
+  const [postMessage] = useMutation(POST_MESSAGES, {
+    onError: err => console.error(err),
+  });
+
+  function sendMessage(name: string, content: string) {
     postMessage({
       variables: {
         name,
-        message,
+        content,
       },
     });
   }
@@ -73,11 +102,8 @@ export function ChatProvider({ children }: ChatContextProps) {
   return (
     <ChatContext.Provider
       value={{
-        getMessages: {
-          data,
-          loading,
-          error,
-        },
+        previousMessages,
+        receivedMessages,
         sendMessage,
       }}
     >

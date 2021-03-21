@@ -8,17 +8,20 @@ import { Container, Messages, Form, Input, Button, SendIcon } from './styles';
 
 export function RoomData() {
   const messagesRef = useRef(null);
-   
-  const { getMessages, sendMessage } = useChat();
 
-  const [message, setMessage] = useState('');
+  const { previousMessages, receivedMessages, sendMessage } = useChat();  
 
-  function handleSendToMessages(event: FormEvent) {
-    event.preventDefault();
+  const [content, setContent] = useState('');
 
-    setMessage('');
-    sendMessage('zevdvlpr', message);
-  }    
+  function handleSendToMessages(e: FormEvent) {
+    e.preventDefault();
+
+    if (content.trim() === '') return;
+
+    setContent('');
+
+    sendMessage('zevdvlpr', content);
+  }
 
   useEffect(() => {
     if (messagesRef) {
@@ -37,22 +40,35 @@ export function RoomData() {
   return (
     <Container>
       <Messages ref={messagesRef}>
-        {getMessages.data?.messages.map((message, index) => (
-          <RoomMessage
-            key={index}
-            user={message.user}
-            date={new Date()}
-            content={message.content}
-          />
-        ))}
+        {receivedMessages.loading
+          ? previousMessages.data?.previousMessages.map(
+              ({ user, content }, index) => (
+                <RoomMessage
+                  key={index}
+                  user={user}
+                  date={new Date()}
+                  content={content}
+                />
+              ),
+            )
+          : receivedMessages.data?.receivedMessages.map(
+              ({ user, content }, index) => (
+                <RoomMessage
+                  key={index}
+                  user={user}
+                  date={new Date()}
+                  content={content}
+                />
+              ),
+            )}
       </Messages>
 
       <Form onSubmit={handleSendToMessages}>
         <Input
           type="text"
           placeholder="Envie uma mensagem..."
-          value={message}
-          onChange={event => setMessage(event.target.value)}
+          value={content}
+          onChange={event => setContent(event.target.value)}
         />
 
         <Button type="submit">

@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.12",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.19.0",
     "graphql": "^15.5.0",
     "polished": "^4.1.1",

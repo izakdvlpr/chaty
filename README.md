@@ -1,3 +1,3 @@
 # chaty
 
-One in real time to chat with friends made in ReactJS, NodeJS and React Native. 
+A simple chat created to chat with friends.

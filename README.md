@@ -1,3 +1,3 @@
 # chaty
 
-A simple chat created to chat with friends.
+A place to chat with your friends.

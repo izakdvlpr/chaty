@@ -1,4 +1,4 @@
-package com.izakdvlpr.chaty.ui.theme
+package com.izakdvlpr.chaty.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

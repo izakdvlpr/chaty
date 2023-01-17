@@ -62,14 +62,14 @@ android {
 }
 
 dependencies {
+  implementation(project(":core:designsystem"))
 
-  implementation("androidx.core:core-ktx:1.7.0")
-  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-  implementation("androidx.activity:activity-compose:1.3.1")
+  implementation(libs.androidx.core.ktx)
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.activity.compose)
 
-  implementation("androidx.compose.ui:ui-tooling:1.2.0")
-  implementation("androidx.compose.ui:ui:1.2.0")
-  implementation("androidx.compose.ui:ui-tooling-preview:1.2.0")
-
-  implementation("androidx.compose.material:material:1.2.0")
+  implementation(libs.androidx.compose.ui)
+  implementation(libs.androidx.compose.ui.tooling)
+  implementation(libs.androidx.compose.ui.tooling.preview)
+  implementation(libs.androidx.compose.material)
 }

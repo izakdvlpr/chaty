@@ -1,2 +1,2 @@
-export * from './users.routes';
-export * from './guild/guilds.routes';
+export * from './user.routes';
+export * from './guild.routes';

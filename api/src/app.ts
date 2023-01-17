@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 
-import { usersRoutes, guildsRoutes } from './routes';
+import { userRoutes, guildRoutes } from './routes';
 
 export const app = express();
 
@@ -14,5 +14,5 @@ app.use(
 
 app.use(cors());
 
-app.use('/users', usersRoutes);
-app.use('/guilds', guildsRoutes);
+app.use('/users', userRoutes);
+app.use('/guilds', guildRoutes);

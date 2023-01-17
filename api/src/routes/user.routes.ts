@@ -2,11 +2,11 @@ import { Router } from 'express';
 
 import { UserRepository } from '@/database/repositories';
 
-export const usersRoutes = Router();
+export const userRoutes = Router();
 
 const userRepository = new UserRepository();
 
-usersRoutes.post('/', async (request, response) => {
+userRoutes.post('/', async (request, response) => {
   const { username } = request.body;
 
   try {
@@ -14,17 +14,17 @@ usersRoutes.post('/', async (request, response) => {
 
     response.status(201).send();
   } catch (error) {
-    response.status(400).json({ message: (<Error>error).message });
+    response.status(400).json({ error: (<Error>error).message });
   }
 });
 
-usersRoutes.get('/', async (_request, response) => {
+userRoutes.get('/', async (_request, response) => {
   const users = await userRepository.findMany();
 
   response.json({ users });
 });
 
-usersRoutes.get('/:userId', async (request, response) => {
+userRoutes.get('/:userId', async (request, response) => {
   const { userId } = request.params;
 
   try {
@@ -32,6 +32,6 @@ usersRoutes.get('/:userId', async (request, response) => {
 
     response.status(200).json({ user });
   } catch (error) {
-    response.status(400).json({ message: (<Error>error).message });
+    response.status(400).json({ error: (<Error>error).message });
   }
 });

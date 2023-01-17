@@ -63,7 +63,9 @@ export class GuildRepository {
 
   async findById(id: string): Promise<Partial<Guild> | null> {
     const guild = await prisma.guild.findFirst({
-      where: { id },
+      where: {
+        id,
+      },
       select: {
         id: true,
         name: true,

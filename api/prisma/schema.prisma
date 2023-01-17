@@ -56,6 +56,8 @@ model Message {
   authorId  String
   channel   Channel  @relation(fields: [channelId], references: [id])
   channelId String
+  guild     Guild?   @relation(fields: [guildId], references: [id])
+  guildId   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -84,8 +86,8 @@ model Channel {
   description String?
   guild       Guild       @relation(fields: [guildId], references: [id])
   guildId     String
-  category    Category    @relation(fields: [categoryId], references: [id])
-  categoryId  String
+  category    Category?   @relation(fields: [categoryId], references: [id])
+  categoryId  String?
   messages    Message[]
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
@@ -101,6 +103,7 @@ model Guild {
   members   Member[]
   invites   Invite[]
   channels  Channel[]
+  messages  Message[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 

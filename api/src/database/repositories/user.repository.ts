@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto';
 import type { User } from '@prisma/client';
 
 import { prisma } from '@/database/prisma';
-import { randomInteger } from '@/utils';
+import { randomInteger } from '@/utils/number';
 
 export class UserRepository {
   async create(data: Record<'username', string>): Promise<void> {

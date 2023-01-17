@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: chaty-postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: chaty
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: docker
+    ports:
+      - 5432:5432

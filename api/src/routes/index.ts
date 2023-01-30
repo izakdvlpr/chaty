@@ -1,2 +1,2 @@
 export * from './user.routes';
-export * from './guild.routes';
+export * from './room.routes';

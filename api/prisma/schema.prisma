@@ -14,39 +14,11 @@ model User {
   id            String    @id
   username      String
   discriminator String
-  guilds        Guild[]
-  members       Member[]
   messages      Message[]
-  invites       Invite[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
   @@map("users")
-}
-
-model Member {
-  id        String   @id
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  guild     Guild    @relation(fields: [guildId], references: [id])
-  guildId   String
-  joinedAt  DateTime
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("members")
-}
-
-model Invite {
-  id        String   @id
-  code      String
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String
-  guild     Guild    @relation(fields: [guildId], references: [id])
-  guildId   String
-  createdAt DateTime @default(now())
-
-  @@map("invites")
 }
 
 model Message {
@@ -54,58 +26,20 @@ model Message {
   content   String
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String
-  channel   Channel  @relation(fields: [channelId], references: [id])
-  channelId String
-  guild     Guild?   @relation(fields: [guildId], references: [id])
-  guildId   String?
+  room      Room     @relation(fields: [roomId], references: [id])
+  roomId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("messages")
 }
 
-model Category {
-  id          String    @id
-  name        String
-  description String?
-  channels    Channel[]
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  @@map("categories")
-}
-
-enum ChannelType {
-  TEXT
-}
-
-model Channel {
-  id          String      @id
-  type        ChannelType
-  name        String
-  description String?
-  guild       Guild       @relation(fields: [guildId], references: [id])
-  guildId     String
-  category    Category?   @relation(fields: [categoryId], references: [id])
-  categoryId  String?
-  messages    Message[]
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-
-  @@map("channels")
-}
-
-model Guild {
+model Room {
   id        String    @id
   name      String
-  owner     User      @relation(fields: [ownerId], references: [id])
-  ownerId   String
-  members   Member[]
-  invites   Invite[]
-  channels  Channel[]
   messages  Message[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
-  @@map("guilds")
+  @@map("rooms")
 }

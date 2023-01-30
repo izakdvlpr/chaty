@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { UserRepository } from '@/database/repositories';
+import { UserRepository } from '@/repositories';
 
 export const userRoutes = Router();
 
@@ -16,12 +16,6 @@ userRoutes.post('/', async (request, response) => {
   } catch (error) {
     response.status(400).json({ error: (<Error>error).message });
   }
-});
-
-userRoutes.get('/', async (_request, response) => {
-  const users = await userRepository.findMany();
-
-  response.json({ users });
 });
 
 userRoutes.get('/:userId', async (request, response) => {

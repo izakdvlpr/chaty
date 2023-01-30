@@ -1,41 +1,58 @@
 import http from 'http';
 
-import { Server } from 'socket.io';
+import cors from 'cors';
+import express from 'express';
+import { Server as WebsocketServer } from 'socket.io';
 
-import { app } from '@/app';
-import { ConnectionRepository } from '@/database/repositories';
-import { Logger } from '@/utils/logger';
+import { userRoutes, roomRoutes } from './routes';
 
+export interface Connection {
+  socketId: string;
+  userId: string;
+  roomId: string;
+}
+
+const app = express();
 const server = http.createServer(app);
 
-const logger = new Logger({ scope: 'Api' });
-
-const connectionRepository = new ConnectionRepository();
-
-export const websocket = new Server(server, {
+const io = new WebsocketServer(server, {
   cors: {
     origin: '*',
   },
 });
 
-websocket.on('connection', socket => {
-  const { userId, guildId, channelId } = socket.handshake.query as Record<
-    'userId' | 'guildId' | 'channelId',
+const connections: Record<string, Connection> = {};
+
+io.on('connection', socket => {
+  const { userId, roomId } = socket.handshake.query as Record<
+    'userId' | 'roomId',
     string
   >;
 
-  if (!userId || !guildId || !channelId) return;
+  if (!userId || !roomId) return;
 
   const socketId = socket.id;
 
-  connectionRepository.create({
-    userId,
-    guildId,
-    channelId,
+  connections[userId] = {
     socketId,
-  });
+    userId,
+    roomId,
+  };
 
-  logger.info(`Client connected: ${userId}-${channelId}-${socketId}`);
+  console.log(`Client connected: ${socketId}`);
 });
 
-server.listen(3333, () => logger.info('Api running.'));
+app.use(express.json());
+app.use(cors());
+
+app.use((req, _res, next) => {
+  req.io = io;
+  req.connections = connections;
+
+  return next();
+});
+
+app.use('/users', userRoutes);
+app.use('/rooms', roomRoutes);
+
+server.listen(3333, () => console.log('Api running.'));

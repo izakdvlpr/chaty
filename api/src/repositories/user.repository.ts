@@ -6,22 +6,30 @@ import { prisma } from '@/database/prisma';
 import { randomInteger } from '@/utils/number';
 
 export class UserRepository {
-  async create(data: Record<'username', string>): Promise<void> {
+  async create(data: Record<'username', string>): Promise<Partial<User>> {
     const { username } = data;
 
-    await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         id: randomUUID(),
         username,
         discriminator: randomInteger(1000, 5000).toString(),
       },
+      select: {
+        id: true,
+        username: true,
+        discriminator: true,
+        createdAt: true,
+      },
     });
+
+    return user;
   }
 
-  async findById(id: string): Promise<Partial<User> | null> {
+  async findByUsername(username: string): Promise<Partial<User>> {
     const user = await prisma.user.findFirst({
       where: {
-        id,
+        username,
       },
       select: {
         id: true,
@@ -32,7 +40,9 @@ export class UserRepository {
     });
 
     if (!user) {
-      return null;
+      const userCreated = await this.create({ username });
+
+      return userCreated;
     }
 
     return user;

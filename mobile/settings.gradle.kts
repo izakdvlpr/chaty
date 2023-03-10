@@ -18,4 +18,3 @@ dependencyResolutionManagement {
 rootProject.name = "Chaty"
 
 include(":app")
-include(":core:designsystem")

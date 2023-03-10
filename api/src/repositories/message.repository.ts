@@ -7,10 +7,10 @@ import { prisma } from '@/database/prisma';
 export class MessageRepository {
   async create(
     data: Record<'content' | 'authorId' | 'roomId', string>,
-  ): Promise<void> {
+  ): Promise<Partial<Message>> {
     const { content, authorId, roomId } = data;
 
-    await prisma.message.create({
+    const message = await prisma.message.create({
       data: {
         id: randomUUID(),
         content,
@@ -18,6 +18,8 @@ export class MessageRepository {
         roomId,
       },
     });
+
+    return message;
   }
 
   async findManyByRoom(roomId: string): Promise<Partial<Message>[]> {

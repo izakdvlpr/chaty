@@ -11,7 +11,7 @@ export class RoomRepository {
     await prisma.room.create({
       data: {
         id: randomUUID(),
-        name,
+        name: name.toLowerCase().replace(' ', '-'),
       },
     });
   }
@@ -21,21 +21,6 @@ export class RoomRepository {
       select: {
         id: true,
         name: true,
-        messages: {
-          select: {
-            id: true,
-            content: true,
-            author: {
-              select: {
-                id: true,
-                username: true,
-                discriminator: true,
-                createdAt: true,
-              },
-            },
-            createdAt: true,
-          },
-        },
         createdAt: true,
       },
     });
@@ -51,21 +36,6 @@ export class RoomRepository {
       select: {
         id: true,
         name: true,
-        messages: {
-          select: {
-            id: true,
-            content: true,
-            author: {
-              select: {
-                id: true,
-                username: true,
-                discriminator: true,
-                createdAt: true,
-              },
-            },
-            createdAt: true,
-          },
-        },
         createdAt: true,
       },
     });

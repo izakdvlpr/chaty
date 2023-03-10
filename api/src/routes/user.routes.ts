@@ -10,19 +10,7 @@ userRoutes.post('/', async (request, response) => {
   const { username } = request.body;
 
   try {
-    await userRepository.create({ username });
-
-    response.status(201).send();
-  } catch (error) {
-    response.status(400).json({ error: (<Error>error).message });
-  }
-});
-
-userRoutes.get('/:userId', async (request, response) => {
-  const { userId } = request.params;
-
-  try {
-    const user = await userRepository.findById(userId);
+    const user = await userRepository.findByUsername(username);
 
     response.status(200).json({ user });
   } catch (error) {
